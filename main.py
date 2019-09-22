@@ -3,7 +3,6 @@
 from time import sleep
 
 text_string = "MM7XRT"
-morse_string = ""
 
 MORSE_CODE_DICT = { 'A':'.-', 'B':'-...', 
                     'C':'-.-.', 'D':'-..', 'E':'.', 
