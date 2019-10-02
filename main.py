@@ -20,7 +20,7 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '?':'..--..', '/':'-..-.', '-':'-....-', 
                     '(':'-.--.', ')':'-.--.-'} 
 
-multiplier = 0.2
+multiplier = 0.15
 
 # International Morse code is composed of five elements:
 # - short mark, dot or "dit" (.): "dot duration" is one time unit long
