@@ -68,7 +68,7 @@ if __name__ == "__main__":
                 sleep(multiplier * DOT_LENGTH)
                 led(False)
 
-                if morse_string[ind+1] != " " or morse_string[ind+1] != "/":
+                if morse_string[ind+1] != " " and morse_string[ind+1] != "/":
                     sleep(multiplier * INNER_ELE_GAP)
 
             elif ch == "-":
@@ -76,11 +76,11 @@ if __name__ == "__main__":
                 sleep(multiplier * DASH_LENGTH)
                 led(False)
 
-                if morse_string[ind+1] != " " or morse_string[ind+1] != "/":
+                if morse_string[ind+1] != " " and morse_string[ind+1] != "/":
                     sleep(multiplier * INNER_ELE_GAP)
 
             elif ch == " ":
-                if morse_string[ind+1] != "/" or morse_string[ind-1] != "/":
+                if morse_string[ind+1] != "/" and morse_string[ind-1] != "/":
                     sleep(multiplier * LETTER_GAP)
 
             elif ch == "/":
