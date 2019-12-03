@@ -2,7 +2,8 @@
 
 from time import sleep
 
-text_string = "MM7XRT"
+text_string = "MM7XRT"  # Text to display in morse
+multiplier = 0.15  # Speed multiplier (less is faster)
 
 MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
@@ -20,8 +21,6 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
 
-multiplier = 0.15
-
 # International Morse code is composed of five elements:
 # - short mark, dot or "dit" (.): "dot duration" is one time unit long
 # - longer mark, dash or "dah" (-): three time units long
@@ -36,7 +35,9 @@ LETTER_GAP = 3
 WORD_GAP = 7
 LOOP_GAP = 10
 
+
 def text_to_morse(txt):
+    """Convert text string to morse cipher and return it."""
     cipher = ""
     for letter in txt.upper():
         if letter != " ":
@@ -47,16 +48,17 @@ def text_to_morse(txt):
 
 
 def led(state):
+    """ Turn the LED on (true) or off (false). """
+    led = open("/sys/kernel/debug/ec/ec0/io", "wb")
+    led.seek(12)
+    
     if state:
-        led = open("/sys/kernel/debug/ec/ec0/io", "wb")
-        led.seek(12)
-        led.write(b"\x8a")
-        led.flush()
+        led.write(b"\x8a")  # LED On
     else:
-        led = open("/sys/kernel/debug/ec/ec0/io", "wb")
-        led.seek(12)
-        led.write(b"\x0a")
-        led.flush()
+        led.write(b"\x0a")  # LED Off
+        
+    led.flush()
+
 
 if __name__ == "__main__":
     while True:
