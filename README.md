@@ -1,3 +1,5 @@
+## Newer version of this script, written in Rust can be found [here](https://github.com/RichusX/thinkmorse-rust)
+
 # thinkmorse
 Python script for flashing the ThinkPad lid LED in Morse code
 
